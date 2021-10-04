@@ -3,22 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                sh 'echo "\033[33mAnsi-color_Example\033[0m"'
+
             }
         }
-	stage('Test') {
-	    steps {
-		sh 'echo "testing"'
-	    }
-	}
-	stage('Deploy') {
-	    steps {
-		sh 'echo "deploy"'
-	    }
-	}
+        stage('Test') {
+            steps {
+            sh "echo '\033[34mTesting\033[0m '"
+            }
+        }
+        stage('Deploy') {
+            steps {
+            sh "\033[35mDeploying!\033[0m '"
+            }
+        }
     }
 }

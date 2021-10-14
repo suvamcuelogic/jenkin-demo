@@ -10,7 +10,8 @@ and made a rule that superuser will perform CRUD all the post and owner of post 
 the same rest will only can view  them.
 
 I have taken Two Users:(username:password)
-suvam:123 => superuser
+
+suvam:123 => superuser ,
 user1:tepa1234 => user
 
 1. First Open adminsite in two browsers and login with mentioned credentials accordingly

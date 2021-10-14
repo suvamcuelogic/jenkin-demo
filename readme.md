@@ -1,7 +1,7 @@
 #Object Level Permission Explained
 
-1 . Install the requirements.txt file in your Virtual env 
-2 . [https://django-guardian.readthedocs.io/]()
+1. Install the requirements.txt file in your Virtual env 
+2. [https://django-guardian.readthedocs.io/]()
 
 Explaination :
 

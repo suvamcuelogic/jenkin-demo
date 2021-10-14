@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-            sh "\033[35mDeploying!\033[0m '"
+            sh "echo '\033[35mDeploying!\033[0m '"
             }
         }
     }

@@ -28,12 +28,12 @@ Then We set Rules For different Groups from admin ui (we can also do it by code)
 
 
 1. First Open admin-site in two browsers and login with mentioned credentials accordingly
-2. Trigger the api [http://localhost:8000/role-based/](http://localhost:8000/role-based/) in both browser 
+2. Trigger the api [http://localhost:8000/role-based-view](http://localhost:8000/role-based/) in both browser 
 3. You will start seeing all posts for differerent permission for different users :
  
 For User belong to Viewers you will get response like this :
 
-`{
+```{
     "message": [
         {
             "author": 4,
@@ -61,12 +61,11 @@ For User belong to Viewers you will get response like this :
         }
     ],
     "status": 200
-}`
-
+}```
 
 For User belong to Post-admin you will get response like this :
 
-`{
+```{
     "message": [
         {
             "author": 4,
@@ -102,10 +101,10 @@ For User belong to Post-admin you will get response like this :
         }
     ],
     "status": 200
-}`
+}```
 
 For User belong to Site-admin you will get response like this :
-
+``
 `{
     "message": [
         {
@@ -142,7 +141,7 @@ For User belong to Site-admin you will get response like this :
         }
     ],
     "status": 200
-}`
+}```
 
 
 

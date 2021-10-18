@@ -10,8 +10,10 @@ class SimpleModelSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         post =SimpleModel.objects.create(**validated_data)
-        assign_perm('assign_post', self.context['request'].user, post)
-        assign_perm('view_project', self.context['request'].user, post)
+        # assign_perm('assign_post', self.context['request'].user, post)
+        # assign_perm('view_project', self.context['request'].user, post)
+        assign_perm('change_simplemodel',post.author, post)
+        assign_perm('delete_simplemodel', post.author, post)
         return post
 
 
@@ -23,14 +25,11 @@ class Simple_User_based_permission_ModelSerializer(serializers.ModelSerializer):
         fields = ["author","title","description","status","datetime","permission_crud","permission_by_gurdian_user_wise"]
 
     def get_permission_crud(self,obj):
-        custom_permission={"can_view":True}
-        if self.context['request'].user.id==obj.author.id or self.context['request'].user.is_superuser:
-            custom_permission["can_update"]=True
-            custom_permission["can_delete"] = True
-            return custom_permission
-
-        custom_permission["can_update"] = False
-        custom_permission["can_delete"] = False
+        custom_permission={
+            "can_view" : self.context['request'].user.has_perm('posts.view_simplemodel'),
+            "can_update" : self.context['request'].user.has_perm('change_simplemodel',obj) or self.context['request'].user.has_perm('posts.change_simplemodel'),
+            "can_delete" : self.context['request'].user.has_perm('delete_simplemodel',obj) or self.context['request'].user.has_perm('posts.delete_simplemodel') ,
+        }
         return custom_permission
 
     def get_permission_by_gurdian_user_wise(self,obj):

@@ -11,7 +11,13 @@ class SimpleModel(models.Model):
     class Meta:
         permissions = (
             ('assign_post', 'Assign post'),
-            ("view_project","View Posts")
+            ("view_project","View Posts"),
+
+            # ("view_simplemodel", "View Posts"),
+            # ("add_simplemodel","Add Posts"),
+            # ("change_simplemodel", "Edit Posts"),
+            # ("delete_simplemodel", "Delete Posts")
+
         )
 
 

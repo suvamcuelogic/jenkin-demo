@@ -27,3 +27,12 @@ class ListPosts(APIView):
         queryset = get_objects_for_user(request.user, 'posts.view_project')
         serializer_class=Simple_User_based_permission_ModelSerializer(queryset,context={'request': request},many=True)
         return Response({"message": serializer_class.data , "status": 200})
+
+
+class ListPosts2(APIView):
+
+    permission_classes = [IsAuthenticated ]
+    def get(self, request, format=None):
+        queryset = get_objects_for_user(request.user, 'posts.view_simplemodel')
+        serializer_class=Simple_User_based_permission_ModelSerializer(queryset,context={'request': request},many=True)
+        return Response({"message": serializer_class.data , "status": 200})
